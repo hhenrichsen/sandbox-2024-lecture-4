@@ -1,0 +1,62 @@
+name: Build
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, edited]
+    branches-ignore:
+      - 'nobuild**'
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Checkout fonts
+        uses: actions/checkout@v3
+        with:
+          repository: hhenrichsen/fonts
+          token: ${{ secrets.FONTS_PAT }}
+          path: fonts
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install
+        run: bun install
+
+      - name: Build animations
+        run: bun run build
+        working-directory: packages/animations
+
+      - name: Build
+        run: bun run build
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: 'dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Presentation</title>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Slide 1</h1>
+          <h5>by Hunter Henrichsen</h5>
+        </section>
+        <section>
+          <h2>Animation Slide</h2>
+          <motion-canvas-player
+            auto="true"
+            src="/animations/anim2.project.js"
+          ></motion-canvas-player>
+        </section>
+        <section>
+          <header>
+            <iconify-icon
+              icon="lucide:lightbulb"
+              width="3em"
+              height="3em"
+              style="color: var(--ctp-mocha-yellow)"
+            ></iconify-icon>
+            <h2></h2>
+          </header>
+        </section>
+      </div>
+    </div>
+    <script type="module" src="src/main.ts"></script>
+  </body>
+</html>

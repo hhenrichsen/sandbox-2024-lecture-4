@@ -1,0 +1,44 @@
+{
+  "name": "reveal-canvas",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently --kill-others \"npm run slides:dev\" \"npm run animation:dev\"",
+    "animation:dev": "cd packages/animations && npm run watch",
+    "slides:dev": "vite",
+    "animation:build": "cd packages/animations && npm run build",
+    "build": "npm run animation:build && tsc && vite build",
+    "preview": "vite preview",
+    "lint": "npm run eslint && npm run prettier",
+    "format": "npm run eslint:fix && npm run prettier:fix",
+    "eslint": "eslint \"**/*.ts?(x)\"",
+    "eslint:fix": "eslint --fix \"**/*.ts?(x)\"",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write ."
+  },
+  "devDependencies": {
+    "@catppuccin/highlightjs": "^1.0.0",
+    "@types/reveal.js": "^5.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.4.0",
+    "@typescript-eslint/parser": "^8.4.0",
+    "concurrently": "^9.0.0",
+    "eslint": "^9.10.0",
+    "eslint-plugin-tsdoc": "^0.3.0",
+    "prettier": "^3.3.3",
+    "reveal.js": "^5.1.0",
+    "typescript": "^5.5.4",
+    "unocss": "^0.63.1",
+    "vite": "^5.4.3",
+    "vite-plugin-static-copy": "^1.0.6"
+  },
+  "dependencies": {
+    "@catppuccin/palette": "^1.2.0",
+    "@motion-canvas/core": "^3.17.0",
+    "@motion-canvas/player": "^3.17.0",
+    "iconify-icon": "^2.1.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
