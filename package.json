@@ -36,7 +36,7 @@
     "@catppuccin/palette": "^1.2.0",
     "@motion-canvas/core": "^3.17.0",
     "@motion-canvas/player": "^3.17.0",
-    "iconify-icon": "^2.1.0"
+    "iconify-icon": "^3.0.0"
   },
   "workspaces": [
     "packages/*"
