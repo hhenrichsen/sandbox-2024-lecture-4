@@ -30,7 +30,7 @@
     "typescript": "^5.5.4",
     "unocss": "^66.0.0",
     "vite": "^8.0.0",
-    "vite-plugin-static-copy": "^3.0.0"
+    "vite-plugin-static-copy": "^4.0.0"
   },
   "dependencies": {
     "@catppuccin/palette": "^1.2.0",
