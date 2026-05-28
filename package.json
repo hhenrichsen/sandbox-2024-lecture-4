@@ -22,7 +22,7 @@
     "@types/reveal.js": "^5.0.3",
     "@typescript-eslint/eslint-plugin": "^8.4.0",
     "@typescript-eslint/parser": "^8.4.0",
-    "concurrently": "^9.0.0",
+    "concurrently": "^10.0.0",
     "eslint": "^10.0.0",
     "eslint-plugin-tsdoc": "^0.5.0",
     "prettier": "^3.3.3",
